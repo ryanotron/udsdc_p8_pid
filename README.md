@@ -18,9 +18,11 @@ You will get a `pid` executable you can run. You would need the [simulator](http
 
 ## Configuration
 
-There are two PID controllers inside, one to control steering and another to control throttle. You can specify their gains, along with other parameters, with a parameter file. The parameter file must be named `params.txt` and placed in the root folder of the source code (one directory above `build`).
+There are two PID controllers inside, one to control steering and another to control throttle. You can specify their gains, along with other parameters, with a parameter file. The default parameter file must be named `params.txt` and placed in the root folder of the source code (one directory above `build`).
 
 For project submission purpose, the default values in `params.txt` is the one submitted.
+
+To run the program with another parameter file, specify its relative path (from where the executable is), for example `$ ./pid ../params03.txt`. When no parameter file is specified, the default `params.txt` will be used.
 
 `steer` line contains gains for steering and `throttle` line contains gains for throttle, both in order: proportional, integral, differential.
 
