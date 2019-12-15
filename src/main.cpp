@@ -46,7 +46,16 @@ string hasData(string s) {
     return "";
 }
 
-int main() {
+int main(int argc, char** argv) {
+    string paramfile = "../params.txt";
+    if (argc > 1) {
+        cout << argv[1] << endl;
+        paramfile = argv[1];
+    }
+    else {
+        cout << "using default parameters" << endl;
+    }
+
     uWS::Hub h;
 
     PID pid;
@@ -61,7 +70,9 @@ int main() {
 
     // read actual values to be used from parameter file
     string instr;
-    std::ifstream instream ("../params.txt");
+//    std::ifstream instream ("../params.txt");
+    cout << paramfile << endl;
+    std::ifstream instream (paramfile);
 
     if (instream.is_open()) {
         while (std::getline(instream, instr)) {
